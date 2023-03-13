@@ -10,7 +10,7 @@
   transform: 400ms all ease-in-out;
   cursor: pointer;
   width: 80px;
-  z-index: 1000;
+  z-index: 900;
   position: absolute;
   top: 0;
   height: 100%;

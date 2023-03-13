@@ -7,6 +7,7 @@ import MovieModal from './MovieModal';
 const Row = ({ title, id, fetchUrl }) => {
   const [movies, setMovies] = useState([]);
   const [modalOpen, setModalOpen] = useState(false);
+  const [movieSelected, setMovieSelected] = useState({});
 
   const fetchMovieData = useCallback(async () => {
     const response = await axios.get(fetchUrl);
@@ -19,6 +20,7 @@ const Row = ({ title, id, fetchUrl }) => {
 
   const handleClick = (movie) => {
     setModalOpen(true);
+    setMovieSelected(movie);
   };
 
   return (
@@ -54,7 +56,9 @@ const Row = ({ title, id, fetchUrl }) => {
         </div>
       </div>
 
-      {modalOpen && <MovieModal setModalOpen={setModalOpen} />}
+      {modalOpen && (
+        <MovieModal {...movieSelected} setModalOpen={setModalOpen} />
+      )}
     </div>
   );
 };
