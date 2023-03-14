@@ -7,7 +7,6 @@ const Nav = () => {
   const { pathname } = useLocation();
   const [searchValue, setSearchValue] = useState('');
   const navigate = useNavigate();
-  const [searchResults, setSearchResults] = useState([]);
 
   const useQuery = () => {
     return new URLSearchParams(useLocation().search);
